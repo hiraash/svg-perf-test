@@ -16,6 +16,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      console.log("console.log works well");
     });
 
     this.matrix = new Snap.Matrix();
@@ -44,24 +46,32 @@ export class MyApp {
     }
 
     public onPanStart( e: HammerInput ) {
-      console.debug( 'TouchArea - onTouchStart fired.' );
+      console.log( 'TouchArea - onTouchStart fired.' );
     }
 
     public onPanMove( e: HammerInput ) {
-        console.debug( 'TouchArea - onTouchMove fired.' );
+        console.log( 'TouchArea - onTouchMove fired.' );
 
       this.matrix.translate( (e.deltaX - this.iDeltaX) / this.zoomLevel, (e.deltaY - this.iDeltaY)/ this.zoomLevel )
-      this.apply();
-
       this.iDeltaX = e.deltaX;
       this.iDeltaY = e.deltaY;
+
+      this.apply();
     }
 
     /**
      * Pinch start handler
      */
     public onPinchStart( e: HammerInput ) {
-        console.debug( 'TouchArea - onPinchStart fired.' );
+        console.log( 'TouchArea - onPinchStart fired.' );
+    }
+
+    /**
+     * Pinch move handler that zooms and pans the diagram
+     * based on users movement.
+     */
+    public onPinchMove( e: HammerInput ) {
+        console.log( 'TouchArea - onPinchMove fired.' );
 
         const level = e.scale;
         const x = e.center.x;
@@ -80,14 +90,8 @@ export class MyApp {
         this.matrix.translate( (e.deltaX - this.iDeltaX) / this.zoomLevel, (e.deltaY - this.iDeltaY)/ this.zoomLevel )
         this.iDeltaX = e.deltaX;
         this.iDeltaY = e.deltaY;
-    }
 
-    /**
-     * Pinch move handler that zooms and pans the diagram
-     * based on users movement.
-     */
-    public onPinchMove( e: HammerInput ) {
-        console.debug( 'TouchArea - onPinchMove fired.' );
+        this.apply();
     }
 
     /**
@@ -95,7 +99,7 @@ export class MyApp {
      * and complets the tap-drags as well.
      */
     public onEnd( e: HammerInput ) {
-      console.debug( 'TouchArea - onEnd fired.' );
+      console.log( 'TouchArea - onEnd fired.' );
       this.iDeltaX = 0;
       this.iDeltaY = 0;
       this.initialZoom = 1;
