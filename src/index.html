@@ -38,5 +38,15 @@
   <!-- The bundle js is generated during the build process -->
   <script src="build/main.js"></script>
 
+  <script src="build/stats.min.js"></script>
+  <script>
+    var stats = new Stats()
+    stats.dom.setAttribute('style', 'position: fixed; top: 0; right: 0')
+    document.body.appendChild(stats.dom)
+    requestAnimationFrame(function loop(){
+      stats.update()
+      requestAnimationFrame(loop)
+    })
+  </script>
 </body>
 </html>
