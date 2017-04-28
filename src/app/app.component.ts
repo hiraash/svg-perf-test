@@ -16,8 +16,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-
-      console.log("console.log works well");
     });
 
     this.matrix = new Snap.Matrix();
@@ -46,16 +44,14 @@ export class MyApp {
     }
 
     public onPanStart( e: HammerInput ) {
-      console.log( 'TouchArea - onTouchStart fired.' );
+      // console.log( 'TouchArea - onTouchStart fired.' );
     }
 
     public onPanMove( e: HammerInput ) {
-        console.log( 'TouchArea - onTouchMove fired.' );
-
+      // console.log( 'TouchArea - onTouchMove fired.' );
       this.matrix.translate( (e.deltaX - this.iDeltaX) / this.zoomLevel, (e.deltaY - this.iDeltaY)/ this.zoomLevel )
       this.iDeltaX = e.deltaX;
       this.iDeltaY = e.deltaY;
-
       this.apply();
     }
 
@@ -63,7 +59,7 @@ export class MyApp {
      * Pinch start handler
      */
     public onPinchStart( e: HammerInput ) {
-        console.log( 'TouchArea - onPinchStart fired.' );
+        // console.log( 'TouchArea - onPinchStart fired.' );
     }
 
     /**
@@ -71,8 +67,6 @@ export class MyApp {
      * based on users movement.
      */
     public onPinchMove( e: HammerInput ) {
-        console.log( 'TouchArea - onPinchMove fired.' );
-
         const level = e.scale;
         const x = e.center.x;
         const y = e.center.y;
@@ -99,7 +93,6 @@ export class MyApp {
      * and complets the tap-drags as well.
      */
     public onEnd( e: HammerInput ) {
-      console.log( 'TouchArea - onEnd fired.' );
       this.iDeltaX = 0;
       this.iDeltaY = 0;
       this.initialZoom = 1;
