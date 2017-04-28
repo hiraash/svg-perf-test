@@ -104,11 +104,11 @@ export class MyApp {
 
     protected getTransformStyle(): string {
         const matrix = this.matrix.toString();
-        return `-webkit-transform: ${matrix} translateZ(0);` +
-                `-moz-transform: ${matrix} translateZ(0);` +
-                `-ms-transform: ${matrix} translateZ(0);` +
-                `-o-transform: ${matrix} translateZ(0);` +
-                `transform: ${matrix} translateZ(0);`;
+        return `-webkit-transform: ${matrix}; will-change: transform; translateZ(0);` +
+                `-moz-transform: ${matrix}; will-change: transform; translateZ(0);` +
+                `-ms-transform: ${matrix}; will-change: transform; translateZ(0);` +
+                `-o-transform: ${matrix}; will-change: transform; translateZ(0);` +
+                `transform: ${matrix}; will-change: transform; translateZ(0);`;
     }
 }
 
