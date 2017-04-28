@@ -110,11 +110,12 @@ export class MyApp {
     }
 
     protected getTransformStyle(): string {
-        return `-webkit-transform: ${this.matrix.toString()};` +
-                `-moz-transform: ${this.matrix.toString()};` +
-                `-ms-transform: ${this.matrix.toString()};` +
-                `-o-transform: ${this.matrix.toString()};` +
-                `transform: ${this.matrix.toString()};`;
+        const matrix = this.matrix.toString();
+        return `-webkit-transform: ${matrix} translateZ(0);` +
+                `-moz-transform: ${matrix} translateZ(0);` +
+                `-ms-transform: ${matrix} translateZ(0);` +
+                `-o-transform: ${matrix} translateZ(0);` +
+                `transform: ${matrix} translateZ(0);`;
     }
 }
 
