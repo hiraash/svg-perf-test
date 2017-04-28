@@ -109,6 +109,12 @@ export class MyApp {
                `-ms-transform: ${matrix} translateZ(0);` +
                `-o-transform: ${matrix} translateZ(0);` +
                `transform: ${matrix} translateZ(0);` +
+               `-webkit-transform-origin: top left;` +
+               `-moz-transform-origin: top left;` +
+               `-ms-transform-origin: top left;` +
+               `-o-transform-origin: top left;` +
+               `-transform-origin: top left;` +
+               `transform-origin: top left;` +
                `will-change: transform;`;
     }
 }
